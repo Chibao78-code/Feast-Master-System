@@ -34,11 +34,24 @@ public class Customer implements Serializable {
     }
 
     public void setCode(String code) {
-        this.code = code;
+        this.code = code.toUpperCase();
     }
 
     public String getName() {
-        return name;
+        if (name == null || name.isEmpty()) {
+            return "";
+        }
+
+        int lastSpaceIndex = name.lastIndexOf(" ");
+
+        if (lastSpaceIndex == -1) {
+            return name;
+        }
+
+        String lastName = name.substring(lastSpaceIndex + 1);
+        String firstMiddleName = name.substring(0, lastSpaceIndex);
+
+        return lastName + ", " + firstMiddleName;
     }
 
     public void setName(String name) {
