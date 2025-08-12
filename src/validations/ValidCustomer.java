@@ -20,5 +20,7 @@ public class ValidCustomer {
         if (code.matches(pattern)){
             isValid = true;
         }
+        return isValid;
       
+}
 }
