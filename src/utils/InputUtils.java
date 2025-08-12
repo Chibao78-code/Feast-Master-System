@@ -33,7 +33,7 @@ public class InputUtils {
             System.out.print(text);
             input = sc.nextLine();
         } catch (Exception e){
-            System.out.println("Error while using getString():" + e.getLocalizedMessage());
+            System.out.println("Error while using getString():" + e.getMessage());
         }
         return input;
     }
