@@ -23,4 +23,16 @@ public class ValidCustomer {
         return isValid;
       
 }
+     public static boolean validName(String name){
+        if (name.isEmpty()) {
+            return false;
+        }
+        
+        boolean isValid = false;
+        //Check valid name
+        if (2 < name.length() && name.length() < 25){
+            isValid = true;
+        }
+        return isValid;
+    }
 }
