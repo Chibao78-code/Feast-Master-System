@@ -75,10 +75,23 @@ public class Customer implements Serializable {
     }
 
     @Override
-    public String toString() {
-        return "Customer{" + "code=" + code + ", name=" + name + ", phoneNumber=" + phoneNumber + ", email=" + email + '}';
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null || getClass() != obj.getClass()) {
+            return false;
+        }
+        Customer customer = (Customer) obj;
+        return Objects.equals(code, customer.code)
+                && Objects.equals(name, customer.name)
+                && Objects.equals(phoneNumber, customer.phoneNumber)
+                && Objects.equals(email, customer.email);
     }
-    
-    
-    
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(code, name, phoneNumber, email);
+    }
+
 }
