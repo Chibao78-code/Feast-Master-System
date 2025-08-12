@@ -10,30 +10,31 @@ package models;
  * @author zzzdi
  */
 public class FeastMenu {
-    
     private String code;
     private String name;
-    private String price;
-    private String Ingredients;
+    private double price;
+    private String appetizer;
     private String mainCourse;
     private String dessert;
 
     public FeastMenu() {
     }
-
-    public FeastMenu(String code, String name, String price, String Ingredients, String mainCourse, String dessert) {
+    public FeastMenu(String code, String name, double price, String appetizer, String mainCourse, String dessert) {
         this.code = code;
         this.name = name;
         this.price = price;
-        this.Ingredients = Ingredients;
+        this.appetizer = appetizer;
         this.mainCourse = mainCourse;
         this.dessert = dessert;
+    }
+
+    public FeastMenu(String code, String name, String price, String appetizer, String mainCourse, String dessert) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     public String getCode() {
         return code;
     }
-
     public void setCode(String code) {
         this.code = code;
     }
@@ -41,31 +42,27 @@ public class FeastMenu {
     public String getName() {
         return name;
     }
-
     public void setName(String name) {
         this.name = name;
     }
 
-    public String getPrice() {
+    public double getPrice() {
         return price;
     }
-
-    public void setPrice(String price) {
+    public void setPrice(double price) {
         this.price = price;
     }
 
-    public String getIngredients() {
-        return Ingredients;
+    public String getAppetizer() {
+        return appetizer;
     }
-
-    public void setIngredients(String Ingredients) {
-        this.Ingredients = Ingredients;
+    public void setAppetizer(String appetizer) {
+        this.appetizer = appetizer;
     }
 
     public String getMainCourse() {
         return mainCourse;
     }
-
     public void setMainCourse(String mainCourse) {
         this.mainCourse = mainCourse;
     }
@@ -73,16 +70,8 @@ public class FeastMenu {
     public String getDessert() {
         return dessert;
     }
-
     public void setDessert(String dessert) {
         this.dessert = dessert;
     }
-
-    @Override
-    public String toString() {
-        return "FeastMenu{" + "code=" + code + ", name=" + name + ", price=" + price + ", Ingredients=" + Ingredients + ", mainCourse=" + mainCourse + ", dessert=" + dessert + '}';
-    }
-    
-    
-    
 }
+
