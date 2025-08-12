@@ -6,9 +6,12 @@
             <file>file:/D:/Feast-Master-System/Feast-Master-System/src/models/Customer.java</file>
             <file>file:/D:/Feast-Master-System/Feast-Master-System/src/models/Order.java</file>
             <file>file:/D:/Feast-Master-System/Feast-Master-System/src/utils/FileUtils.java</file>
+            <file>file:/D:/Feast-Master-System/Feast-Master-System/src/validations/ValidOrder.java</file>
             <file>file:/D:/Feast-Master-System/Feast-Master-System/src/models/FeastMenu.java</file>
             <file>file:/D:/Feast-Master-System/Feast-Master-System/src/utils/InputUtils.java</file>
+            <file>file:/D:/Feast-Master-System/Feast-Master-System/src/controllers/CTservice.java</file>
             <file>file:/D:/Feast-Master-System/Feast-Master-System/src/models/Functions.java</file>
+            <file>file:/D:/Feast-Master-System/Feast-Master-System/src/validations/ValidCustomer.java</file>
         </group>
     </open-files>
 </project-private>
