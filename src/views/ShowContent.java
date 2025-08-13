@@ -15,5 +15,14 @@ import models.Order;
  * @author zzzdi
  */
 public class ShowContent {
-    
+    public static final String FRAME = "----------------------------------------------------------";
+    public static final String FRAME_MID = "----------------------------------------------------------------------------";
+    public static final String FRAME_PRO = "--------------------------------------------------------------------------------";
+
+    //========================METHOD: Warn Error==============================//
+    public static void warnError(String text) {
+        System.out.println(FRAME);
+        System.out.println("WARNING: Invalid " + text + "!!! Please enter again.");
+        System.out.println(FRAME);
+    }
 }
