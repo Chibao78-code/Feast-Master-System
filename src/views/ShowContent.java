@@ -25,4 +25,30 @@ public class ShowContent {
         System.out.println("WARNING: Invalid " + text + "!!! Please enter again.");
         System.out.println(FRAME);
     }
+    ublic static void reportSuccessOrFailure(boolean stat, int cases) {
+        System.out.println(FRAME);
+        if (stat) {
+            System.out.println("SUCCESS: The operation was completed successfully!");
+        } else {
+            switch (cases) {
+                case 1: {
+                    System.out.println("Failure: Process was canceled!!");
+                    break;
+                }
+                case 5: {
+                    System.out.println("Failure: This order feast already exist!!!");
+                    break;
+                }
+                case 6: {
+                    System.out.println("Failure: This order feast already exist!!!");
+                    break;
+                }
+                case 7: {
+                    System.out.println("Failure: Save data successfully.");
+                    break;
+                }
+            }
+        }
+        System.out.println(FRAME);
+    }
 }
