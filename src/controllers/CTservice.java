@@ -30,5 +30,12 @@ import static views.ShowContent.FRAME_PRO;
  * @author zzzdi
  */
 public class CTservice {
-    
+     //Link data
+    public static final String CUSTOMERS_PATH = "src/datas/Customers.dat";
+    public static final String FEAST_ORDER_PATH = "src/datas/Orders.dat";
+    public static final String FEAST_PATH = "src/datas/FeastMenu.csv";
+    //Read data
+    public static final HashMap<String, Customer> customerMap;
+    public static final HashMap<Integer, Order> orderMap;
+    public static final List<FeastMenu> menuList = FileUtils.readFeastMenuFromFile(FEAST_PATH);
 }
