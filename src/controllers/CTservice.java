@@ -38,4 +38,26 @@ public class CTservice {
     public static final HashMap<String, Customer> customerMap;
     public static final HashMap<Integer, Order> orderMap;
     public static final List<FeastMenu> menuList = FileUtils.readFeastMenuFromFile(FEAST_PATH);
+static {
+        HashMap<String, Customer> tempMap;
+        try {
+            tempMap = FileUtils.readCustomerFromFile(CUSTOMERS_PATH);
+        } catch (IOException | ClassNotFoundException e) {
+            tempMap = new HashMap<>();
+            System.out.println("Error loading customer data: " + e.getMessage());
+        }
+        customerMap = tempMap;
+    }
+
+    static {
+        HashMap<Integer, Order> tempMap;
+        try {
+            tempMap = FileUtils.readOrderFromFile(FEAST_ORDER_PATH);
+
+        } catch (IOException | ClassNotFoundException e) {
+            tempMap = new HashMap<>();
+            System.out.println("Error loading customer data: " + e.getMessage());
+        }
+        orderMap = tempMap;
+    }
 }
