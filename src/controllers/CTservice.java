@@ -95,6 +95,22 @@ static {
 
         return true;
     }
-    
+     //===================FUN_2: Update Customer Information===================//
+    @Override
+    public boolean updateCustomer() {
+        if (customerMap.isEmpty()) {
+            ShowContent.reportSuccessOrFailure(false, 2);
+            return false;
+        }
+         String code = null;
+        Customer customerUpdate;
+
+        //Check customer code
+        code = validCustomerToOrder("update", code);
+        customerUpdate = customerMap.get(code);
+        if (customerUpdate == null) {
+            return false;
+        }
+         System.out.println("Leave blank to keep the current value.");
     
 }
