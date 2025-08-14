@@ -112,5 +112,46 @@ static {
             return false;
         }
          System.out.println("Leave blank to keep the current value.");
+         
+         //Update Name
+        do {
+            String newName = InputUtils.getString("Enter new name: ");
+            if (newName.isEmpty() || ValidCustomer.validName(newName)) {
+                if (!newName.isEmpty()) {
+                    customerUpdate.setName(newName);
+                }
+                break;
+            } else {
+                ShowContent.warnError("customer's name");
+            }
+        } while (true);
+        //Update Phone number
+        do {
+            String newPhone = InputUtils.getString("Enter new phone number: ");
+            if (newPhone.isEmpty() || ValidCustomer.validPhoneNumber(newPhone)) {
+                if (!newPhone.isEmpty()) {
+                    customerUpdate.setPhoneNumber(newPhone);
+                }
+                break;
+            } else {
+                ShowContent.warnError("customer's phone number");
+            }
+        } while (true);
+        //Update email
+        do {
+            String newEmail = InputUtils.getString("Enter new email: ");
+            if (newEmail.isEmpty() || ValidCustomer.validEmail(newEmail)) {
+                if (!newEmail.isEmpty()) {
+                    customerUpdate.setEmail(newEmail);
+                }
+                break;
+            } else {
+                ShowContent.warnError("customer's email");
+            }
+        } while (true);
+
+        customerMap.replace(code, customerUpdate);
+        return true;
+    }
     
 }
