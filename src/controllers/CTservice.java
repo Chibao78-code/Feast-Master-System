@@ -191,5 +191,58 @@ static {
         }
     }
     
+    //=====================FUN_5: Place a feast order=========================//
+    @Override
+    public boolean orderFeast() {
+        Order order = new Order();
+        String customerCode = null;
+        String setCode;
+        int tableNumber;
+        String eventDate;
+        int orderID;
+        double totalCost = 0;
+        boolean duplicateOrder = true;
+        boolean isSuccess = false;
+
+        //Enter customer code
+        customerCode = validCustomerToOrder("register", customerCode);
+        if (customerCode == null) {
+            return false;
+        }
+        //Enter set feast code
+        setCode = getValidInput("Enter code of set menu: ", ValidOrder::validSetMenu, "set menu code");
+        setCode = setCode.toUpperCase();
+        //Enter number of tables
+        tableNumber = getValidInt("Enter number of table: ", ValidOrder::validTableNumber, "number of table");
+        //Enter date of event
+        eventDate = getValidInput("Enter event date: ", ValidOrder::validDate, "event date");
+
+        //Check duplicate of oder
+        if (ValidOrder.validOrder(0, customerCode, setCode, eventDate)) {
+            duplicateOrder = false;
+        }
+        //If not duplicate order
+        if (!duplicateOrder) {
+            //Return price of set menu
+            for (FeastMenu menu : menuList) {
+                if (menu.getCode().equals(setCode)) {
+                    totalCost = tableNumber * menu.getPrice();
+                    break;
+                }
+            }
+            orderID = orderMap.size() + 1;
+            order.setOrderId(orderID);
+            order.setCustomerCode(customerCode);
+            order.setSetMenuCode(setCode);
+            order.setTableNumber(tableNumber);
+            order.setEventDate(eventDate);
+            order.setTotalCost(totalCost);
+            ShowContent.displayOrders(order);
+            isSuccess = true;
+        }
+        orderMap.put(order.getOrderId(), order);
+        return isSuccess;
+    }
+    
     
 }
