@@ -153,5 +153,43 @@ static {
         customerMap.replace(code, customerUpdate);
         return true;
     }
+    //===================FUN_3: Search Customers by Name======================//
+    @Override
+    public List<Customer> searchCustomerByName() {
+        String name = InputUtils.getString("Matching Customers: ").toLowerCase();
+
+        List<Customer> matchCustomers = new ArrayList<>();
+        for (Customer customer : customerMap.values()) {
+            if (customer.getName().toLowerCase().contains(name)) {
+                matchCustomers.add(customer);
+            }
+        }
+
+        return matchCustomers;
+    }
+    //=====================FUN_4: Display Feast Menus=========================//
+    @Override
+    public void showFeastMenu() {
+        if (menuList.isEmpty()) {
+            System.out.println("Cannot read data from feastMenu.csv. Please check it.");
+            return;
+        }
+
+        menuList.sort(Comparator.comparingDouble(FeastMenu::getPrice));
+        System.out.println(FRAME_PRO);
+        System.out.println("List of Set Menus for ordering party:");
+        System.out.println(FRAME_PRO);
+        for (FeastMenu menu : menuList) {
+            System.out.println("Code       : " + menu.getCode());
+            System.out.println("Set        : " + menu.getName());
+            System.out.printf("Price      : %,.0f VND", menu.getPrice());
+            System.out.println("\nIngredients: ");
+            System.out.println("+ Khai vị: " + menu.getAppetizer());
+            System.out.println("+ Món chính: " + menu.getMainCourse());
+            System.out.println("+ Tráng miệng: " + menu.getDessert());
+            System.out.println(FRAME_PRO);
+        }
+    }
+    
     
 }
