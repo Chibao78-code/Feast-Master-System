@@ -79,7 +79,22 @@ static {
                 }
             }
         } while (true);
-    
+                //Enter customer name
+        name = getValidInput("Enter customer's name: ", ValidCustomer::validName, "customer's name");
+        //Enter customer phone
+        phoneNumber = getValidInput("Enter customer's phone number: ", ValidCustomer::validPhoneNumber, "customer's phone number");
+        //Enter customer email
+        email = getValidInput("Enter customer's email: ", ValidCustomer::validEmail, "customer's email");
+
+        //Add customer information
+        customer.setCode(code);
+        customer.setName(name);
+        customer.setPhoneNumber(phoneNumber);
+        customer.setEmail(email);
+        customerMap.put(customer.getCode(), customer);
+
+        return true;
+    }
     
     
 }
