@@ -60,4 +60,26 @@ static {
         }
         orderMap = tempMap;
     }
+    @Override
+    public boolean registerCustomer() {
+        Customer customer = new Customer();
+        String code;
+        String name;
+        String phoneNumber;
+        String email;
+        //Enter customer code
+        do {
+            code = getValidInput("Enter customer's code: ", ValidCustomer::validCode, "customer's code");
+            if (!customerMap.containsKey(code)) {
+                break;
+            } else {
+                String conf = InputUtils.getString("This customer code already exists! Do you want to cancel proceed? (Y/N): ");
+                if (conf.equalsIgnoreCase("Y")) {
+                    return false;
+                }
+            }
+        } while (true);
+    
+    
+    
 }
