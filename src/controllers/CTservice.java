@@ -317,6 +317,29 @@ static {
                 ShowContent.warnError("event date");
             }
         }
+        //Check duplicate of oder
+        if (ValidOrder.validOrder(orderCode, order.getCustomerCode(), setCode, eventDate)) {
+            duplicateOrder = false;
+        }
+        //If not duplicate order
+        if (!duplicateOrder) {
+            //Return price of set menu
+            for (FeastMenu menu : menuList) {
+                if (menu.getCode().equals(setCode)) {
+                    totalCost = tableNumber * menu.getPrice();
+                    break;
+                }
+            }
+            order.setSetMenuCode(setCode);
+            order.setTableNumber(tableNumber);
+            order.setEventDate(eventDate);
+            order.setTotalCost(totalCost);
+            ShowContent.displayOrders(order);
+            isSuccess = true;
+        }
+        orderMap.replace(order.getOrderId(), order);
+        return isSuccess;
+    }
     
     
 }
