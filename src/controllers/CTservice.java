@@ -244,5 +244,46 @@ static {
         return isSuccess;
     }
     
+     //====================FUN_6: Update Order Information=====================//
+    @Override
+    public boolean updateOrder() {
+        boolean isSuccess = false;
+        boolean duplicateOrder = true;
+        int orderCode;
+        String setCode;
+        int tableNumber;
+        double totalCost = 0;
+        String eventDate;
+
+        do {
+            orderCode = InputUtils.getInt("Enter order code you want to update: ");
+            if (orderMap.containsKey(orderCode)) {
+                break;
+            }
+            String conf = InputUtils.getString("This order does not exist. Do you want to try another order code? (Y/N):");
+            if (conf.equalsIgnoreCase("N")) {
+                return false;
+            }
+        } while (true);
+
+        //Start update
+        Order order = orderMap.get(orderCode);
+        //Enter set feast code
+        setCode = order.getSetMenuCode();
+        while (true) {
+            String newSetCode = InputUtils.getString("Enter code of set menu (leave blank to keep current): ").trim();
+
+            if (newSetCode.isEmpty()) {
+                break;
+            }
+
+            if (ValidOrder.validSetMenu(newSetCode)) {
+                setCode = newSetCode.toUpperCase();
+                break;
+            } else {
+                ShowContent.warnError("set menu code");
+            }
+        }
+    
     
 }
