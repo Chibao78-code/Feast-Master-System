@@ -284,6 +284,39 @@ static {
                 ShowContent.warnError("set menu code");
             }
         }
+        tableNumber = order.getTableNumber();
+        while (true) {
+            String newTableNumber = InputUtils.getString("Enter number of table (leave blank to keep current): ").trim();
+            if (newTableNumber.isEmpty()) {
+                break;
+            }
+            try {
+                int parsedTableNumber = Integer.parseInt(newTableNumber);
+                if (ValidOrder.validTableNumber(parsedTableNumber)) {
+                    tableNumber = parsedTableNumber;
+                    break;
+                } else {
+                    ShowContent.warnError("number of table");
+                }
+            } catch (NumberFormatException e) {
+                System.out.println("Invalid input. Please enter a valid number.");
+            }
+        }
+        //Enter date of event
+        eventDate = order.getEventDate();
+        while (true) {
+            String newEventDate = InputUtils.getString("Enter event date (leave blank to keep current): ").trim();
+            if (newEventDate.isEmpty()) {
+                break;
+            }
+
+            if (ValidOrder.validDate(newEventDate)) {
+                eventDate = newEventDate;
+                break;
+            } else {
+                ShowContent.warnError("event date");
+            }
+        }
     
     
 }
