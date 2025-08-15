@@ -4,10 +4,18 @@
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
             <file>file:/D:/Feast-Master-System/Feast-Master-System/src/views/ShowContent.java</file>
-            <file>file:/D:/Feast-Master-System/Feast-Master-System/src/controllers/CTmenu.java</file>
+            <file>file:/D:/Feast-Master-System/Feast-Master-System/src/utils/FileUtils.java</file>
+            <file>file:/D:/Feast-Master-System/Feast-Master-System/src/models/Order.java</file>
             <file>file:/D:/Feast-Master-System/Feast-Master-System/src/views/Menu.java</file>
+            <file>file:/D:/Feast-Master-System/Feast-Master-System/src/models/FeastMenu.java</file>
+            <file>file:/D:/Feast-Master-System/Feast-Master-System/src/validations/ValidCustomer.java</file>
+            <file>file:/D:/Feast-Master-System/Feast-Master-System/src/models/Customer.java</file>
+            <file>file:/D:/Feast-Master-System/Feast-Master-System/src/controllers/CTmenu.java</file>
+            <file>file:/D:/Feast-Master-System/Feast-Master-System/src/validations/ValidOrder.java</file>
             <file>file:/D:/Feast-Master-System/Feast-Master-System/src/controllers/CTservice.java</file>
             <file>file:/D:/Feast-Master-System/Feast-Master-System/src/views/App.java</file>
+            <file>file:/D:/Feast-Master-System/Feast-Master-System/src/utils/InputUtils.java</file>
+            <file>file:/D:/Feast-Master-System/Feast-Master-System/src/models/Functions.java</file>
         </group>
     </open-files>
 </project-private>
