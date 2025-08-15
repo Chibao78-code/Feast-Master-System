@@ -67,5 +67,22 @@ public class ShowContent {
             }
             System.out.println(FRAME_MID);
         }
+         public static void displayCustomers(List<Customer> customers, int numbFunc) {
+        if (customers.isEmpty()) {
+            System.out.println(FRAME_MID);
+            if (numbFunc == 3) {
+                System.out.println("No one matches the search criteria! ");
+            }
+            System.out.println(FRAME_MID);
+        } else {
+            System.out.println(FRAME_MID);
+            System.out.printf("%-8s | %-20s | %-12s | %-25s\n", "Code", "Customer Name", "Phone", "Email");
+            System.out.println(FRAME_MID);
+            for (Customer customer : customers) {
+                System.out.printf("%-8s | %-20s | %-12s | %-25s\n", customer.getCode(), customer.getName(), customer.getPhoneNumber(), customer.getEmail());
+            }
+            System.out.println(FRAME_MID);
+        }
+    }
     }
 }
