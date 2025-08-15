@@ -385,5 +385,25 @@ static {
             System.out.println(FRAME_PRO);
         }
     }
+    //=========================FUN_9: Quit Program============================//
+    @Override
+    public void quitProgram() throws IOException, ClassNotFoundException {
+        HashMap<String, Customer> dataC = FileUtils.readCustomerFromFile(CUSTOMERS_PATH);
+        HashMap<Integer, Order> dataO = FileUtils.readOrderFromFile(FEAST_ORDER_PATH);
+        
+        String confirm = InputUtils.getString("Do you want to exit program(Y/N): ");
+        if (confirm.equalsIgnoreCase("Y")) {
+            if (!dataC.equals(customerMap) || !dataO.equals(orderMap)) {
+                confirm = InputUtils.getString("Do you want to save data before exit program(Y/N): ");
+                if (confirm.equalsIgnoreCase("Y")) {
+                    saveData();
+                }
+            }
+            System.out.println("Exitting...");
+            exit(0);
+        } else {
+            System.out.println("Cancel exit program!!!");
+        }
+    }
     
 }
