@@ -341,5 +341,16 @@ static {
         return isSuccess;
     }
     
+    //======================FUN_7: Save Date to File==========================//
+    @Override
+    public boolean saveData(){
+        boolean isSuccess;
+        if (FileUtils.writeCustomerToFile(CUSTOMERS_PATH, customerMap) && FileUtils.writeOrderToFile(FEAST_ORDER_PATH, orderMap)) {
+            isSuccess = true;
+        } else {
+            isSuccess = false;
+        }
+        return isSuccess;
+    }
     
 }
