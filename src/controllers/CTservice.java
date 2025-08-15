@@ -352,5 +352,38 @@ static {
         }
         return isSuccess;
     }
+    //================FUN_8: Display Customer or Order lists==================//
+    @Override
+    public void displayCustormAndOrder() {
+        int choice = CTmenu.getChoice("Enter 1 to display the customer list, 2 to display the order list: ", 1, 2);
+        if (choice == 1) {
+            if (customerMap.isEmpty()) {
+                System.out.println("Customers list is empty!");
+                return;
+            }
+            System.out.println(FRAME_MID);
+            System.out.printf("%-8s | %-20s | %-13s | %-25s \n", "Code", "Customer Name", "Phone", "Email");
+            System.out.println(FRAME_MID);
+            for (Customer customer : customerMap.values()) {
+                System.out.printf("%-8s | %-20s | %-13s | %-25s \n", customer.getCode(), customer.getName(), customer.getPhoneNumber(), customer.getEmail());
+            }
+            System.out.println(FRAME_MID);
+        } else if (choice == 2) {
+            if (orderMap.isEmpty()) {
+                System.out.println("Orders list is empty!");
+                return;
+            }
+            System.out.println(FRAME_PRO);
+            System.out.printf("%-2s | %-11s | %-12s | %-9s | %-10s | %-6s | %-15s \n",
+                    "ID", "Event Date", "Customer ID", "Set Menu", "Price", "Table", "Cost");
+            System.out.println(FRAME_PRO);
+            for (Order order : orderMap.values()) {
+                System.out.printf("%-2s | %-11s | %-12s | %-9s | %,-10.0f | %-6s | %,-15.0f \n",
+                        order.getOrderId(), order.getEventDate(), order.getCustomerCode(), order.getSetMenuCode(),
+                        (order.getTotalCost() / order.getTableNumber()), order.getTableNumber(), order.getTotalCost());
+            }
+            System.out.println(FRAME_PRO);
+        }
+    }
     
 }
