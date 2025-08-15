@@ -109,5 +109,13 @@ public class ShowContent {
         System.out.printf("Total cost: %,.0f Vnd\n", order.getTotalCost());
         System.out.println(FRAME);
     }
+         
+     public static FeastMenu getSetMenu(String code) {
+        for (FeastMenu menu : menuList) {
+            if (menu.getCode().equalsIgnoreCase(code)) {
+                return menu;
+            }
+        }
+        return null;
     }
 }
