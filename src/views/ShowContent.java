@@ -84,5 +84,30 @@ public class ShowContent {
             System.out.println(FRAME_MID);
         }
     }
+         public static void displayOrders(Order order) {
+        FeastMenu menu = getSetMenu(order.getSetMenuCode());
+        Customer customer = customerMap.get(order.getCustomerCode());
+
+        System.out.println(FRAME);
+        System.out.println("Customer order information [Order ID : " + order.getOrderId() + "]");
+        System.out.println(FRAME);
+        System.out.println("Code          :" + customer.getCode());
+        System.out.println("Customer name :" + customer.getName());
+        System.out.println("Phone number  :" + customer.getPhoneNumber());
+        System.out.println("Email         :" + customer.getEmail());
+        System.out.println(FRAME);
+        System.out.println("Code of Set Menu:" + menu.getCode());
+        System.out.println("Set Menu Name   :" + menu.getName());
+        System.out.println("Event date      :" + order.getEventDate());
+        System.out.println("Number of Tables:" + order.getTableNumber());
+        System.out.printf("Price           : %,.0f Vnd\n", menu.getPrice());
+        System.out.println("Ingredients:");
+        System.out.println("+ Khai vị: " + menu.getAppetizer());
+        System.out.println("+ Món chính: " + menu.getMainCourse());
+        System.out.println("+ Tráng miệng:" + menu.getDessert());
+        System.out.println(FRAME);
+        System.out.printf("Total cost: %,.0f Vnd\n", order.getTotalCost());
+        System.out.println(FRAME);
+    }
     }
 }
