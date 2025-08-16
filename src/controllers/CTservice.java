@@ -405,5 +405,54 @@ static {
             System.out.println("Cancel exit program!!!");
         }
     }
+     //******************SUB-FUNC: Get Valid String Input**********************//
+    /**
+     * Input method and validation
+     *
+     * @param message Input message
+     * @param validator Validation function
+     * @param fieldName Field name to display on error
+     * @return Valid value entered by user
+     */
+    private String getValidInput(String text, Predicate<String> validator, String fieldName) {
+        String input;
+        do {
+            input = InputUtils.getString(text).trim();
+            if (validator.test(input)) {
+                return input;
+            }
+            ShowContent.warnError(fieldName);
+        } while (true);
+    }
+
+    //*****************SUB-FUNC: Get valid Integer Input**********************//
+    private int getValidInt(String text, Predicate<Integer> validator, String fieldName) {
+        int numb;
+        do {
+            numb = InputUtils.getInt(text);
+            if (validator.test(numb)) {
+                return numb;
+            }
+            ShowContent.warnError(fieldName);
+        } while (true);
+    }
+
+    //*****************SUB-FUNC: Check customerCode for order*****************//
+    private String validCustomerToOrder(String text, String customerCode) {
+        do {
+            customerCode = getValidInput("Enter customer code: ", ValidCustomer::validCode, "customer code");
+            if (ValidOrder.validCustomerCode(customerCode)) {
+                return customerCode;
+            } else {
+                System.out.println("Customer has not registered information!!!");
+                String confirm = InputUtils.getString("Do you want to continue " + text + "?(Y/N):").trim();
+                if (confirm.equalsIgnoreCase("N")) {
+                    return null;
+                }
+            }
+        } while (true);
+    }
+}
+
     
 }
