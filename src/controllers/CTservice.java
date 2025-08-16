@@ -29,8 +29,9 @@ import static views.ShowContent.FRAME_PRO;
  *
  * @author zzzdi
  */
-public class CTservice {
-     //Link data
+public class CTservice implements Functions {
+
+    //Link data
     public static final String CUSTOMERS_PATH = "src/datas/Customers.dat";
     public static final String FEAST_ORDER_PATH = "src/datas/Orders.dat";
     public static final String FEAST_PATH = "src/datas/FeastMenu.csv";
@@ -38,7 +39,8 @@ public class CTservice {
     public static final HashMap<String, Customer> customerMap;
     public static final HashMap<Integer, Order> orderMap;
     public static final List<FeastMenu> menuList = FileUtils.readFeastMenuFromFile(FEAST_PATH);
-static {
+
+    static {
         HashMap<String, Customer> tempMap;
         try {
             tempMap = FileUtils.readCustomerFromFile(CUSTOMERS_PATH);
@@ -60,6 +62,8 @@ static {
         }
         orderMap = tempMap;
     }
+
+    //========================FUN_1: Register Customer========================//    
     @Override
     public boolean registerCustomer() {
         Customer customer = new Customer();
@@ -79,7 +83,7 @@ static {
                 }
             }
         } while (true);
-                //Enter customer name
+        //Enter customer name
         name = getValidInput("Enter customer's name: ", ValidCustomer::validName, "customer's name");
         //Enter customer phone
         phoneNumber = getValidInput("Enter customer's phone number: ", ValidCustomer::validPhoneNumber, "customer's phone number");
@@ -95,14 +99,16 @@ static {
 
         return true;
     }
-     //===================FUN_2: Update Customer Information===================//
+
+    //===================FUN_2: Update Customer Information===================//
     @Override
     public boolean updateCustomer() {
         if (customerMap.isEmpty()) {
             ShowContent.reportSuccessOrFailure(false, 2);
             return false;
         }
-         String code = null;
+
+        String code = null;
         Customer customerUpdate;
 
         //Check customer code
@@ -111,9 +117,9 @@ static {
         if (customerUpdate == null) {
             return false;
         }
-         System.out.println("Leave blank to keep the current value.");
-         
-         //Update Name
+
+        System.out.println("Leave blank to keep the current value.");
+        //Update Name
         do {
             String newName = InputUtils.getString("Enter new name: ");
             if (newName.isEmpty() || ValidCustomer.validName(newName)) {
@@ -153,6 +159,7 @@ static {
         customerMap.replace(code, customerUpdate);
         return true;
     }
+
     //===================FUN_3: Search Customers by Name======================//
     @Override
     public List<Customer> searchCustomerByName() {
@@ -167,6 +174,7 @@ static {
 
         return matchCustomers;
     }
+
     //=====================FUN_4: Display Feast Menus=========================//
     @Override
     public void showFeastMenu() {
@@ -190,7 +198,7 @@ static {
             System.out.println(FRAME_PRO);
         }
     }
-    
+
     //=====================FUN_5: Place a feast order=========================//
     @Override
     public boolean orderFeast() {
@@ -243,8 +251,8 @@ static {
         orderMap.put(order.getOrderId(), order);
         return isSuccess;
     }
-    
-     //====================FUN_6: Update Order Information=====================//
+
+    //====================FUN_6: Update Order Information=====================//
     @Override
     public boolean updateOrder() {
         boolean isSuccess = false;
@@ -284,6 +292,7 @@ static {
                 ShowContent.warnError("set menu code");
             }
         }
+        //Enter number of tables
         tableNumber = order.getTableNumber();
         while (true) {
             String newTableNumber = InputUtils.getString("Enter number of table (leave blank to keep current): ").trim();
@@ -317,6 +326,7 @@ static {
                 ShowContent.warnError("event date");
             }
         }
+
         //Check duplicate of oder
         if (ValidOrder.validOrder(orderCode, order.getCustomerCode(), setCode, eventDate)) {
             duplicateOrder = false;
@@ -340,7 +350,7 @@ static {
         orderMap.replace(order.getOrderId(), order);
         return isSuccess;
     }
-    
+
     //======================FUN_7: Save Date to File==========================//
     @Override
     public boolean saveData(){
@@ -352,6 +362,7 @@ static {
         }
         return isSuccess;
     }
+
     //================FUN_8: Display Customer or Order lists==================//
     @Override
     public void displayCustormAndOrder() {
@@ -385,6 +396,7 @@ static {
             System.out.println(FRAME_PRO);
         }
     }
+
     //=========================FUN_9: Quit Program============================//
     @Override
     public void quitProgram() throws IOException, ClassNotFoundException {
@@ -405,7 +417,8 @@ static {
             System.out.println("Cancel exit program!!!");
         }
     }
-     //******************SUB-FUNC: Get Valid String Input**********************//
+
+    //******************SUB-FUNC: Get Valid String Input**********************//
     /**
      * Input method and validation
      *
@@ -455,4 +468,4 @@ static {
 }
 
     
-}
+
