@@ -21,9 +21,9 @@ public class ValidCustomer {
             isValid = true;
         }
         return isValid;
-      
-}
-     public static boolean validName(String name){
+    }
+    
+    public static boolean validName(String name){
         if (name.isEmpty()) {
             return false;
         }
@@ -32,6 +32,35 @@ public class ValidCustomer {
         //Check valid name
         if (2 < name.length() && name.length() < 25){
             isValid = true;
+        }
+        return isValid;
+    }
+    
+    public static boolean validPhoneNumber(String phone) {
+        if (phone.isEmpty()){
+            return false;
+        }
+        
+        boolean isValid = false;
+        //Check valid phone number
+        if (phone.charAt(0) == '0' && phone.length() == 10){
+            isValid = true;
+        }
+        return isValid;
+    }
+    
+    public static boolean validEmail(String email) {
+        if(email.isEmpty()) {
+            return false;
+        }
+        
+        boolean isValid;
+        //Check valid email
+        String emailRegex = "^[a-zA-Z0-9_+&*-]+(?:\\.[a-zA-Z0-9_+&*-]+)*@(?:[a-zA-Z0-9-]+\\.)+[a-zA-Z]{2,7}$";
+        if (email.matches(emailRegex)) {
+            isValid = true;
+        } else {
+            isValid = false;
         }
         return isValid;
     }
