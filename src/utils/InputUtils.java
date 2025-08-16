@@ -11,29 +11,27 @@ import java.util.Scanner;
  * @author zzzdi
  */
 public class InputUtils {
-    
-    public static int getInt(String text){
+
+    public static int getInt(String text) {
         int number;
         Scanner sc = new Scanner(System.in);
-        try{
+        try {
             System.out.print(text);
             number = Integer.parseInt(sc.nextLine());
-        } catch (NumberFormatException e){
+        } catch (NumberFormatException e) {
             number = -1;
-            
-            
         }
         return number;
     }
-    
+
     public static String getString(String text) {
         String input = null;
         Scanner sc = new Scanner(System.in);
-        try{
+        try {
             System.out.print(text);
             input = sc.nextLine();
-        } catch (Exception e){
-            System.out.println("Error while using getString():" + e.getMessage());
+        } catch (Exception e) {
+            System.out.println("Error while using getString(): " + e.getMessage());
         }
         return input;
     }

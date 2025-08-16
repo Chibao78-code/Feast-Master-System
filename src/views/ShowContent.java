@@ -15,6 +15,7 @@ import models.Order;
  * @author zzzdi
  */
 public class ShowContent {
+
     public static final String FRAME = "----------------------------------------------------------";
     public static final String FRAME_MID = "----------------------------------------------------------------------------";
     public static final String FRAME_PRO = "--------------------------------------------------------------------------------";
@@ -25,7 +26,8 @@ public class ShowContent {
         System.out.println("WARNING: Invalid " + text + "!!! Please enter again.");
         System.out.println(FRAME);
     }
-    ublic static void reportSuccessOrFailure(boolean stat, int cases) {
+
+    public static void reportSuccessOrFailure(boolean stat, int cases) {
         System.out.println(FRAME);
         if (stat) {
             System.out.println("SUCCESS: The operation was completed successfully!");
@@ -51,6 +53,7 @@ public class ShowContent {
         }
         System.out.println(FRAME);
     }
+
     public static void displayCustomers(List<Customer> customers, int numbFunc) {
         if (customers.isEmpty()) {
             System.out.println(FRAME_MID);
@@ -67,24 +70,9 @@ public class ShowContent {
             }
             System.out.println(FRAME_MID);
         }
-         public static void displayCustomers(List<Customer> customers, int numbFunc) {
-        if (customers.isEmpty()) {
-            System.out.println(FRAME_MID);
-            if (numbFunc == 3) {
-                System.out.println("No one matches the search criteria! ");
-            }
-            System.out.println(FRAME_MID);
-        } else {
-            System.out.println(FRAME_MID);
-            System.out.printf("%-8s | %-20s | %-12s | %-25s\n", "Code", "Customer Name", "Phone", "Email");
-            System.out.println(FRAME_MID);
-            for (Customer customer : customers) {
-                System.out.printf("%-8s | %-20s | %-12s | %-25s\n", customer.getCode(), customer.getName(), customer.getPhoneNumber(), customer.getEmail());
-            }
-            System.out.println(FRAME_MID);
-        }
     }
-         public static void displayOrders(Order order) {
+
+    public static void displayOrders(Order order) {
         FeastMenu menu = getSetMenu(order.getSetMenuCode());
         Customer customer = customerMap.get(order.getCustomerCode());
 
@@ -109,8 +97,8 @@ public class ShowContent {
         System.out.printf("Total cost: %,.0f Vnd\n", order.getTotalCost());
         System.out.println(FRAME);
     }
-         
-     public static FeastMenu getSetMenu(String code) {
+    
+    public static FeastMenu getSetMenu(String code) {
         for (FeastMenu menu : menuList) {
             if (menu.getCode().equalsIgnoreCase(code)) {
                 return menu;

@@ -21,4 +21,6 @@ public interface Functions {
     boolean saveData();
     void displayCustomerAndOrder();
     void quitProgram() throws IOException, ClassNotFoundException;
+
+    public void displayCustormAndOrder();
 }

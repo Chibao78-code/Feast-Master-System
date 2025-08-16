@@ -74,4 +74,3 @@ public class FeastMenu {
         this.dessert = dessert;
     }
 }
-

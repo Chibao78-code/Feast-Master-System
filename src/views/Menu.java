@@ -10,7 +10,7 @@ import java.util.List;
  * @author zzzdi
  */
 public class Menu {
-     private static final List<String> mainMenu = new ArrayList<>();
+    private static final List<String> mainMenu = new ArrayList<>();
     
     static {
         mainMenu.add("||======================================================||");

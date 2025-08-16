@@ -16,7 +16,8 @@ import models.Order;
  * @author zzzdi
  */
 public class ValidOrder {
-     public static boolean validCustomerCode(String code) {
+
+    public static boolean validCustomerCode(String code) {
         boolean isValid;
         if (CTservice.customerMap.containsKey(code)) {
             isValid = true;
@@ -87,3 +88,4 @@ public class ValidOrder {
         return isValid;
     }
 }
+

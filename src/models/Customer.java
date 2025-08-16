@@ -11,9 +11,9 @@ import java.util.Objects;
  * @author zzzdi
  */
 public class Customer implements Serializable {
-    
-    private static final long seralVersionUID = 1L;
-    
+
+    private static final long serialVersionUID = 1L;
+
     private String code;
     private String name;
     private String phoneNumber;

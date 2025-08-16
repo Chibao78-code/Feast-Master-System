@@ -465,7 +465,9 @@ public class CTservice implements Functions {
             }
         } while (true);
     }
+
+    @Override
+    public void displayCustomerAndOrder() {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
 }
-
-    
-
